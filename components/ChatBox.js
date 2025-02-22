@@ -47,7 +47,7 @@ export default function Chat({ username }) {
     <div className="flex items-center justify-center bg-white">
       <div className="mx-auto w-full max-w-full py-4 bg-white">
         <Topbar username={username} />
-        <div className="md:h-[680px] h-[600px] overflow-y-auto bg-white p-2 md:mx-0 mx-2 rounded mb-4">
+        <div className="md:h-[680px] h-[630px] overflow-y-auto bg-white p-2 md:mx-0 mx-2 rounded mb-4">
           {messages.map((msg, index) => (
             <Messages key={index} msg={msg} />
           ))}
