@@ -8,19 +8,19 @@ export default function handler(req, res) {
     });
 
     io.on("connection", (socket) => {
-      console.log("A user connected");
+      console.log("A user connected", socket.id);
 
-      socket.on("message", (msg) => {
-        // Broadcast to all except sender
-        socket.broadcast.emit("message", msg);
+      socket.on("message", (data) => {
+        io.emit("message", data);
       });
 
       socket.on("disconnect", () => {
-        console.log("User disconnected");
+        console.log("A user disconnected", socket.id);
       });
     });
 
     res.socket.server.io = io;
   }
+
   res.end();
 }

@@ -4,7 +4,10 @@ import Messages from "./Messages";
 import SendInput from "./SendInput";
 import Topbar from "./Topbar";
 
-const socket = io({ path: "/api/socketio" });
+const socket = io({
+  path: "/api/socketio",
+  transports: ["websocket", "polling"],
+});
 
 export default function Chat({ username }) {
   const [message, setMessage] = useState("");
